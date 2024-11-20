@@ -15,10 +15,10 @@ if (formNewComp) {
     const dados = await fetch("cadastrar.php", {
       method: "POST",
       body: dadosForm
-    })
-    // console.log(dados);
+    });
+    console.log(dados);
     const resposta = await dados.json();
-    console.log(resposta);
+    // console.log(resposta);
 
   });
 }

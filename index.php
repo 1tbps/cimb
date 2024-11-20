@@ -33,7 +33,7 @@
           <th>SETOR</th>
           <th>MARCA</th>
           <th>MODELO</th>
-          <!-- <th>Ações</th> -->
+          <th>Ações</th>
         </tr>
       </thead>
     </table>
@@ -56,11 +56,26 @@
               <label for="fld-ult-usuario" class="form-label">Último Usuário</label>
               <input type="text" name="fld-ult-usuario" class="form-control" id="fld-ult-usuario" placeholder="Primeiro Nome">
             </div>
-            <!-- <div class="col-md-3">
-              <label for="fld-sigla-setor" class="form-label">Coord.</label>
-              <input type="text" name="fld-sigla-setor" class="form-control" id="fld-sigla-setor" placeholder="Sigla do setor">
-            </div> -->
-
+            <div class="col-md-6">
+              <label for="fld-patrimonio_cpu" class="form-label">Patrimônio da CPU</label>
+              <input type="text" name="fld-patrimonio_cpu" class="form-control" id="fld-patrimonio_cpu" placeholder="">
+            </div>
+            <div class="col-md-6">
+              <label for="fld-servicetag_cpu" class="form-label">Service Tag</label>
+              <input type="text" name="fld-servicetag_cpu" class="form-control" id="fld-servicetag_cpu" placeholder="">
+            </div>
+            <div class="col-md-9">
+              <label for="fld-office_email" class="form-label">E-Mail do Office</label>
+              <input type="email" name="fld-office_email" class="form-control" id="fld-office_email" placeholder="">
+            </div>
+            <div class="col-md-3">
+              <label for="fld-office_senha" class="form-label">Senha do Office</label>
+              <input type="text" name="fld-office_senha" class="form-control" id="fld-office_senha" placeholder="">
+            </div>
+            <div class="col-md-9">
+              <label for="fld-office_serial" class="form-label">Serial do Office</label>
+              <input type="text" name="fld-office_serial" class="form-control" id="fld-office_serial" placeholder="">
+            </div>
             <div class="col-md-3">
               <label for="fld-sigla-setor" class="form-label">Coord.</label>
               <select name="fld-sigla-setor" id="fld-sigla-setor" class="form-select">
@@ -68,32 +83,32 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_setor = 'SELECT ID, sigla_setor FROM Setores';
+                $query_setor = 'SELECT id, sigla_setor FROM Setores';
                 $result_setor = $conn->prepare($query_setor);
                 $result_setor->execute();
 
                 while ($row_setor = $result_setor->fetch(PDO::FETCH_ASSOC)) {
                   extract($row_setor);
-                  echo '<option value="' . $ID . '">' . $sigla_setor . '</option>';
+                  echo '<option value="' . $id . '">' . $sigla_setor . '</option>';
                 }
 
                 ?>
               </select>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-12">
               <label for="fld-nome-setor" class="form-label">Setor</label>
               <select name="fld-nome-setor" id="fld-nome-setor" class="form-select">
                 <option value="">Selecione o Setor</option>
                 <?php
                 include_once "conexao.php";
 
-                $query_setor = 'SELECT ID, nome_setor FROM Setores';
+                $query_setor = 'SELECT id, nome_setor FROM Setores';
                 $result_setor = $conn->prepare($query_setor);
                 $result_setor->execute();
 
                 while ($row_setor = $result_setor->fetch(PDO::FETCH_ASSOC)) {
                   extract($row_setor);
-                  echo '<option value="' . $ID . '">' . $nome_setor . '</option>';
+                  echo '<option value="' . $id . '">' . $nome_setor . '</option>';
                 }
 
                 ?>
@@ -103,24 +118,41 @@
               <label for="fld-marca" class="form-label">Marca</label>
               <select name="fld-marca" id="fld-marca" class="form-select">
                 <option value="">Selecione a Marca</option>
-                <option value="DELL">DELL</option>
-                <option value="HP">HP</option>
+                <?php
+                include_once "conexao.php";
+
+                $query_marca = 'SELECT id, marca FROM Marcas';
+                $result_marca = $conn->prepare($query_marca);
+                $result_marca->execute();
+
+                while ($row_marca = $result_marca->fetch(PDO::FETCH_ASSOC)) {
+                  extract($row_marca);
+                  echo '<option value="' . $id . '">' . $marca . '</option>';
+                }
+                ?>
               </select>
             </div>
             <div class="col-md-6">
               <label for="fld-modelo" class="form-label">Modelo</label>
               <select name="fld-modelo" id="fld-modelo" class="form-select">
                 <option value="">Selecione o Modelo</option>
-                <option value="OPTIPLEX 3070">OPTIPLEX 3070</option>
-                <option value="ELITEDESK 800 G4 DM">ELITEDESK 800 G4 DM</option>
+                <?php
+                include_once "conexao.php";
+
+                $query_modelo = 'SELECT id, modelo FROM Modelos';
+                $result_modelo = $conn->prepare($query_modelo);
+                $result_modelo->execute();
+
+                while ($row_modelo = $result_modelo->fetch(PDO::FETCH_ASSOC)) {
+                  extract($row_modelo);
+                  echo '<option value="' . $id . '">' . $modelo . '</option>';
+                }
+                ?>
               </select>
             </div>
-            <!-- <div class="col-12">
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </div> -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-outline-secondary " data-bs-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn btn-outline-success ">Salvar Mudanças</button>
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btn-outline-success" value="cadastrar">Salvar Mudanças</button>
             </div>
           </form>
         </div>

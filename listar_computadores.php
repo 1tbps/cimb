@@ -48,7 +48,7 @@ $row_qnt_computadores = $result_qnt_computadores->fetch(PDO::FETCH_ASSOC);
 
 //Recuperar os registros do banco de dados
 // $query_computadores = "SELECT * FROM Dispositivos ORDER BY id DESC LIMIT :inicio, :quantidade";
-$query_computadores = "SELECT ID,nome_cpu,ult_usuario,sigla_setor,nome_setor,marca,modelo FROM Dispositivos ";
+$query_computadores = "SELECT * FROM Dispositivos ";
 
 if (!empty($dados_requisicao['search']['value'])) {
   $query_computadores .= " WHERE ID LIKE :ID ";
@@ -83,7 +83,7 @@ while ($row_computador = $result_computadores->fetch(PDO::FETCH_ASSOC)) {
   //var_dump($row_computadores);
   extract($row_computador);
   $registro = [];
-  $registro[] = $ID;
+  $registro[] = $id;
   $registro[] = $nome_cpu /*. " " . $colunas[$dados_requisicao['order'][0]['column']]*/;
   $registro[] = $ult_usuario;
   // $registro[] = $sigla_coord;
@@ -97,6 +97,9 @@ while ($row_computador = $result_computadores->fetch(PDO::FETCH_ASSOC)) {
   // $registro[] = $office_serial;
   $registro[] = $marca;
   $registro[] = $modelo;
+  $registro[] = ' <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368"><path d="M120-320v-80h280v80H120Zm0-160v-80h440v80H120Zm0-160v-80h440v80H120Zm520 480v-160H480v-80h160v-160h80v160h160v80H720v160h-80Z"/></svg> 
+                  <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368"><path d="M160-400v-80h280v80H160Zm0-160v-80h440v80H160Zm0-160v-80h440v80H160Zm360 560v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></svg> 
+                  <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#5f6368"><path d="m576-80-56-56 104-104-104-104 56-56 104 104 104-104 56 56-104 104 104 104-56 56-104-104L576-80ZM120-320v-80h280v80H120Zm0-160v-80h440v80H120Zm0-160v-80h440v80H120Z"/></svg>';
   $dados[] = $registro;
 }
 // var_dump($dados);
