@@ -47,6 +47,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <span id="msgAlertErroCad"></span>
           <form class="row g-3" method="POST" id="form-cad-comp">
             <div class="col-md-6">
               <label for="fld-nome-cpu" class="form-label">Nome PC</label>
@@ -77,19 +78,19 @@
               <input type="text" name="fld-office_serial" class="form-control" id="fld-office_serial" placeholder="">
             </div>
             <div class="col-md-3">
-              <label for="fld-sigla-setor" class="form-label">Coord.</label>
-              <select name="fld-sigla-setor" id="fld-sigla-setor" class="form-select">
+              <label for="fld-sigla-coord" class="form-label">Coord.</label>
+              <select name="fld-sigla-coord" id="fld-sigla-coord" class="form-select">
                 <option value="">Selecione a Coord.</option>
                 <?php
                 include_once "conexao.php";
 
-                $query_setor = 'SELECT id, sigla_setor FROM Setores';
-                $result_setor = $conn->prepare($query_setor);
-                $result_setor->execute();
+                $query_coord = 'SELECT id, sigla_coord FROM Coordenadorias';
+                $result_coord = $conn->prepare($query_coord);
+                $result_coord->execute();
 
-                while ($row_setor = $result_setor->fetch(PDO::FETCH_ASSOC)) {
-                  extract($row_setor);
-                  echo '<option value="' . $id . '">' . $sigla_setor . '</option>';
+                while ($row_coord = $result_coord->fetch(PDO::FETCH_ASSOC)) {
+                  extract($row_coord);
+                  echo '<option value="' . $id . '">' . $sigla_coord . '</option>';
                 }
 
                 ?>

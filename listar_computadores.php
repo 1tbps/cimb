@@ -8,7 +8,7 @@ $colunas = [
   0 => 'ID',
   1 => 'nome_cpu',
   2 => 'ult_usuario',
-  3 => 'sigla_setor',
+  3 => 'sigla_coord',
   4 => 'nome_setor',
   5 => 'marca',
   6 => 'modelo'
@@ -21,7 +21,7 @@ if (!empty($dados_requisicao['search']['value'])) {
   $query_qnt_computadores .= " WHERE ID LIKE :ID ";
   $query_qnt_computadores .= " OR nome_cpu LIKE :nome_cpu ";
   $query_qnt_computadores .= " OR ult_usuario LIKE :ult_usuario ";
-  $query_qnt_computadores .= " OR sigla_setor LIKE :sigla_setor ";
+  $query_qnt_computadores .= " OR sigla_coord LIKE :sigla_coord ";
   $query_qnt_computadores .= " OR nome_setor LIKE :nome_setor ";
   $query_qnt_computadores .= " OR marca LIKE :marca ";
   $query_qnt_computadores .= " OR modelo LIKE :modelo ";
@@ -36,7 +36,7 @@ if (!empty($dados_requisicao['search']['value'])) {
   $result_qnt_computadores->bindParam(':ID', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':nome_cpu', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':ult_usuario', $valor_pesq, PDO::PARAM_STR);
-  $result_qnt_computadores->bindParam(':sigla_setor', $valor_pesq, PDO::PARAM_STR);
+  $result_qnt_computadores->bindParam(':sigla_coord', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':nome_setor', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':marca', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':modelo', $valor_pesq, PDO::PARAM_STR);
@@ -54,7 +54,7 @@ if (!empty($dados_requisicao['search']['value'])) {
   $query_computadores .= " WHERE ID LIKE :ID ";
   $query_computadores .= " OR nome_cpu LIKE :nome_cpu ";
   $query_computadores .= " OR ult_usuario LIKE :ult_usuario ";
-  $query_computadores .= " OR sigla_setor LIKE :sigla_setor ";
+  $query_computadores .= " OR sigla_coord LIKE :sigla_coord ";
   $query_computadores .= " OR nome_setor LIKE :nome_setor ";
   $query_computadores .= " OR marca LIKE :marca ";
   $query_computadores .= " OR modelo LIKE :modelo ";
@@ -71,7 +71,7 @@ if (!empty($dados_requisicao['search']['value'])) {
   $result_computadores->bindParam(':ID', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':nome_cpu', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':ult_usuario', $valor_pesq, PDO::PARAM_STR);
-  $result_computadores->bindParam(':sigla_setor', $valor_pesq, PDO::PARAM_STR);
+  $result_computadores->bindParam(':sigla_coord', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':nome_setor', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':marca', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':modelo', $valor_pesq, PDO::PARAM_STR);
@@ -87,7 +87,7 @@ while ($row_computador = $result_computadores->fetch(PDO::FETCH_ASSOC)) {
   $registro[] = $nome_cpu /*. " " . $colunas[$dados_requisicao['order'][0]['column']]*/;
   $registro[] = $ult_usuario;
   // $registro[] = $sigla_coord;
-  $registro[] = $sigla_setor /*. " " . $dados_requisicao['order'][0]['dir']*/;
+  $registro[] = $sigla_coord /*. " " . $dados_requisicao['order'][0]['dir']*/;
   $registro[] = $nome_setor;
   // $registro[] = $nome_coord;
   // $registro[] = $patrimonio_cpu;
