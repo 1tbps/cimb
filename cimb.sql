@@ -92,23 +92,23 @@ INSERT INTO `CPUs` (`id`, `nome_cpu`, `coord_id`, `setor_id`, `ult_usuario`, `pa
 --
 DELIMITER $$
 CREATE TRIGGER `nome_cpu` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN
-    SET NEW.nome_cpu = UPPER(NEW.nome_cpu)$$
+    SET NEW.nome_cpu = UPPER(NEW.nome_cpu)END;
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `office_email` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN 
-    SET NEW.office_email = LOWER(NEW.office_email)$$
+    SET NEW.office_email = LOWER(NEW.office_email)END;
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `office_serial` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN 
-    SET NEW.office_serial = UPPER(NEW.office_serial)$$
+    SET NEW.office_serial = UPPER(NEW.office_serial)END;
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `servicetag_cpu` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN 
-    SET NEW.servicetag_cpu = UPPER(NEW.servicetag_cpu)$$
+    SET NEW.servicetag_cpu = UPPER(NEW.servicetag_cpu)END;
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `ult_usuario` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN
-    SET NEW.ult_usuario = UPPER(NEW.ult_usuario)$$
+    SET NEW.ult_usuario = UPPER(NEW.ult_usuario)END;
 DELIMITER ;
 
 -- --------------------------------------------------------

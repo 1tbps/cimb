@@ -47,12 +47,12 @@
           <span id="msgAlertErroCad"></span>
           <form class="row g-3" method="POST" id="form-cad-comp">
             <div class="col-md-6">
-              <label for="fld-nome-cpu" class="form-label">Nome PC</label>
-              <input type="text" name="fld-nome-cpu" class="form-control" id="fld-nome-cpu" placeholder="Nome Completo">
+              <label for="fld-nome_cpu" class="form-label">Nome PC</label>
+              <input type="text" name="fld-nome_cpu" class="form-control" id="fld-nome_cpu" placeholder="Nome Completo">
             </div>
             <div class="col-md-6">
-              <label for="fld-ult-usuario" class="form-label">Último Usuário</label>
-              <input type="text" name="fld-ult-usuario" class="form-control" id="fld-ult-usuario" placeholder="Primeiro Nome">
+              <label for="fld-ult_usuario" class="form-label">Último Usuário</label>
+              <input type="text" name="fld-ult_usuario" class="form-control" id="fld-ult_usuario" placeholder="Primeiro Nome">
             </div>
             <div class="col-md-6">
               <label for="fld-patrimonio_cpu" class="form-label">Patrimônio da CPU</label>
@@ -75,8 +75,8 @@
               <input type="text" name="fld-office_serial" class="form-control" id="fld-office_serial" placeholder="">
             </div>
             <div class="col-md-3">
-              <label for="fld-sigla-coord" class="form-label">Coord.</label>
-              <select name="fld-sigla-coord" id="fld-sigla-coord" class="form-select">
+              <label for="fld-sigla_coord" class="form-label">Coord.</label>
+              <select name="fld-sigla_coord" id="fld-sigla_coord" class="form-select">
                 <option value="">Selecione a Coord.</option>
                 <?php
                 include_once "conexao.php";
@@ -94,8 +94,8 @@
               </select>
             </div>
             <div class="col-md-12">
-              <label for="fld-nome-setor" class="form-label">Setor</label>
-              <select name="fld-nome-setor" id="fld-nome-setor" class="form-select">
+              <label for="fld-nome_setor" class="form-label">Setor</label>
+              <select name="fld-nome_setor" id="fld-nome_setor" class="form-select">
                 <option value="">Selecione o Setor</option>
                 <?php
                 include_once "conexao.php";
