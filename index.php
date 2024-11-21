@@ -6,12 +6,9 @@
   <link rel="icon" type="image/png" href="img/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
   <link rel="shortcut icon" href="img/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
-  <link rel="manifest" href="img/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CIMB</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
 </head>

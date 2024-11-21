@@ -16,14 +16,14 @@ if (formNewComp) {
       method: "POST",
       body: dadosForm
     });
-
+    console.log(dados);
     const resposta = await dados.json();
     console.log(resposta);
-    if (resposta['status']) {
-
-    } else {
-      document.getElementById('msgAlertErroCad').innerHTML = resposta['msg'];
-    }
+    // if (resposta['status']) {
+    //   document.getElementById('msgAlertErroCad').innerHTML = "";
+    // } else {
+    //   document.getElementById('msgAlertErroCad').innerHTML = resposta['msg'];
+    // }
 
   });
 }

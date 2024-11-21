@@ -18,7 +18,7 @@ $colunas = [
 $query_qnt_computadores = "SELECT COUNT(id) AS qnt_computadores FROM Dispositivos";
 
 if (!empty($dados_requisicao['search']['value'])) {
-  $query_qnt_computadores .= " WHERE ID LIKE :ID ";
+  $query_qnt_computadores .= " WHERE id LIKE :id ";
   $query_qnt_computadores .= " OR nome_cpu LIKE :nome_cpu ";
   $query_qnt_computadores .= " OR ult_usuario LIKE :ult_usuario ";
   $query_qnt_computadores .= " OR sigla_coord LIKE :sigla_coord ";
@@ -33,7 +33,7 @@ $result_qnt_computadores = $conn->prepare($query_qnt_computadores);
 //Acessa o IF quando a paramtros de pesquisa
 if (!empty($dados_requisicao['search']['value'])) {
   $valor_pesq = "%" . $dados_requisicao['search']['value'] . "%";
-  $result_qnt_computadores->bindParam(':ID', $valor_pesq, PDO::PARAM_STR);
+  $result_qnt_computadores->bindParam(':id', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':nome_cpu', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':ult_usuario', $valor_pesq, PDO::PARAM_STR);
   $result_qnt_computadores->bindParam(':sigla_coord', $valor_pesq, PDO::PARAM_STR);
@@ -51,7 +51,7 @@ $row_qnt_computadores = $result_qnt_computadores->fetch(PDO::FETCH_ASSOC);
 $query_computadores = "SELECT * FROM Dispositivos ";
 
 if (!empty($dados_requisicao['search']['value'])) {
-  $query_computadores .= " WHERE ID LIKE :ID ";
+  $query_computadores .= " WHERE ID LIKE :id ";
   $query_computadores .= " OR nome_cpu LIKE :nome_cpu ";
   $query_computadores .= " OR ult_usuario LIKE :ult_usuario ";
   $query_computadores .= " OR sigla_coord LIKE :sigla_coord ";
@@ -68,7 +68,7 @@ $result_computadores->bindParam(':quantidade', $dados_requisicao['length'], PDO:
 //Acessa o IF quando a paramtros de pesquisa
 if (!empty($dados_requisicao['search']['value'])) {
   $valor_pesq = "%" . $dados_requisicao['search']['value'] . "%";
-  $result_computadores->bindParam(':ID', $valor_pesq, PDO::PARAM_STR);
+  $result_computadores->bindParam(':id', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':nome_cpu', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':ult_usuario', $valor_pesq, PDO::PARAM_STR);
   $result_computadores->bindParam(':sigla_coord', $valor_pesq, PDO::PARAM_STR);
