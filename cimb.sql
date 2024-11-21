@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1deb3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Tempo de geração: 21/11/2024 às 11:42
--- Versão do servidor: 8.0.40-0ubuntu0.24.04.1
--- Versão do PHP: 8.3.6
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 21/11/2024 às 13:05
+-- Versão do servidor: 9.1.0
+-- Versão do PHP: 8.3.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,20 +27,24 @@ USE `cimb`;
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Coordenadorias`
+-- Estrutura para tabela `coordenadorias`
 --
 
-CREATE TABLE `Coordenadorias` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `coordenadorias`;
+CREATE TABLE IF NOT EXISTS `coordenadorias` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `sigla_coord` varchar(6) NOT NULL COMMENT 'Sigla da coordenadoria',
-  `nome_coord` varchar(100) NOT NULL COMMENT 'Nome da Coordenadoria'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nome_coord` varchar(100) NOT NULL COMMENT 'Nome da Coordenadoria',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nome_UNIQUE` (`nome_coord`) USING BTREE,
+  UNIQUE KEY `sigla_UNIQUE` (`sigla_coord`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Despejando dados para a tabela `Coordenadorias`
+-- Despejando dados para a tabela `coordenadorias`
 --
 
-INSERT INTO `Coordenadorias` (`id`, `sigla_coord`, `nome_coord`) VALUES
+INSERT INTO `coordenadorias` (`id`, `sigla_coord`, `nome_coord`) VALUES
 (1, 'GAB', 'GABINETE'),
 (2, 'CAF', 'COORDENADORIA DE ADMINISTRAÇÃO E FINANÇAS'),
 (3, 'CODDEC', 'COORDENADORIA DISTRITAL DE DEFESA CIVIL'),
@@ -51,11 +55,12 @@ INSERT INTO `Coordenadorias` (`id`, `sigla_coord`, `nome_coord`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `CPUs`
+-- Estrutura para tabela `cpus`
 --
 
-CREATE TABLE `CPUs` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `cpus`;
+CREATE TABLE IF NOT EXISTS `cpus` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome_cpu` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Nome da CPU',
   `coord_id` int NOT NULL,
   `setor_id` int NOT NULL,
@@ -66,14 +71,22 @@ CREATE TABLE `CPUs` (
   `office_senha` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'Senha do Office',
   `office_serial` varchar(29) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'Serial do Office',
   `marca_id` int NOT NULL,
-  `modelo_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `modelo_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cpus_UNIQUE` (`nome_cpu`),
+  UNIQUE KEY `servicetag_UNIQUE` (`servicetag_cpu`),
+  UNIQUE KEY `patrimonio_UNIQUE` (`patrimonio_cpu`),
+  KEY `cpus_COORD` (`coord_id`) USING BTREE,
+  KEY `cpus_SETOR` (`setor_id`) USING BTREE,
+  KEY `cpus_MARCA` (`marca_id`) USING BTREE,
+  KEY `cpus_MODELO` (`modelo_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Despejando dados para a tabela `CPUs`
+-- Despejando dados para a tabela `cpus`
 --
 
-INSERT INTO `CPUs` (`id`, `nome_cpu`, `coord_id`, `setor_id`, `ult_usuario`, `patrimonio_cpu`, `servicetag_cpu`, `office_email`, `office_senha`, `office_serial`, `marca_id`, `modelo_id`) VALUES
+INSERT INTO `cpus` (`id`, `nome_cpu`, `coord_id`, `setor_id`, `ult_usuario`, `patrimonio_cpu`, `servicetag_cpu`, `office_email`, `office_senha`, `office_serial`, `marca_id`, `modelo_id`) VALUES
 (1, 'SMSPMPC000', 1, 43, 'FERNANDO', '001.052161184-8', NULL, NULL, NULL, NULL, 2, 1),
 (2, 'SUBMPC001', 1, 4, 'VANESSA', '001.052234223-9', 'BJM1R23', 'bjm1r23@outlook.com', 'mpinfo@2021', 'QFJHN-7JXCX-DTHKG-4HX4R-W8HHX', 3, 2),
 (3, 'SUBMPC002', 1, 28, 'MARISA', '001.052234247-6', 'BBYVQ23', 'bbyvq23@outlook.com', 'mpinfo2019', 'KJKVP-JNRJK-BMBKW-P3WM2-D7B39', 3, 2),
@@ -85,71 +98,95 @@ INSERT INTO `CPUs` (`id`, `nome_cpu`, `coord_id`, `setor_id`, `ult_usuario`, `pa
 (9, 'SUBMPC010', 2, 13, 'VALMIR', '001.052234191-7', 'BH90R23', 'bh90r23@outlook.com', 'mpinfo@2022', NULL, 3, 2),
 (10, 'SUBMPC040', 2, 63, 'GAUCHO', '001.052236669-3', 'BGJZQ23', 'bgjzq23@outlook.com', 'Q!Akloi9', 'VQ2N4-4FFVM-4YQ62-MTF2F-37B39', 3, 2),
 (11, 'SUBMPC008', 2, 35, 'JONHANSON', '001.052234200-0', 'BHR2R23', 'bhr2r23@outlook.com', 'mpinfo2019', 'JRKNC-TXHHK-KYWGX-TVWGV-QPGMK', 3, 2),
-(41, 'SUBMPC011', 4, 64, NULL, '', 'BKQQZ23', '', '', '', 3, 2);
+(12, 'SUBMPC011', 4, 64, 'SANDRA', '001.052234209-3', 'BKQQZ23', 'bjm1r23@outlook.com', 'mpinfo@2021', '', 3, 2);
 
 --
--- Acionadores `CPUs`
+-- Acionadores `cpus`
 --
+DROP TRIGGER IF EXISTS `nome_cpu`;
 DELIMITER $$
-CREATE TRIGGER `nome_cpu` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN
-    SET NEW.nome_cpu = UPPER(NEW.nome_cpu)END;
+CREATE TRIGGER `nome_cpu` BEFORE INSERT ON `cpus` FOR EACH ROW BEGIN
+    SET NEW
+        .nome_cpu = UPPER(NEW.nome_cpu);
+END
+$$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `office_email`;
 DELIMITER $$
-CREATE TRIGGER `office_email` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN 
-    SET NEW.office_email = LOWER(NEW.office_email)END;
+CREATE TRIGGER `office_email` BEFORE INSERT ON `cpus` FOR EACH ROW BEGIN
+    SET NEW
+        .office_email = LOWER(NEW.office_email);
+END
+$$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `office_serial`;
 DELIMITER $$
-CREATE TRIGGER `office_serial` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN 
-    SET NEW.office_serial = UPPER(NEW.office_serial)END;
+CREATE TRIGGER `office_serial` BEFORE INSERT ON `cpus` FOR EACH ROW BEGIN
+    SET NEW
+        .office_serial = UPPER(NEW.office_serial);
+END
+$$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `servicetag_cpu`;
 DELIMITER $$
-CREATE TRIGGER `servicetag_cpu` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN 
-    SET NEW.servicetag_cpu = UPPER(NEW.servicetag_cpu)END;
+CREATE TRIGGER `servicetag_cpu` BEFORE INSERT ON `cpus` FOR EACH ROW BEGIN
+    SET NEW
+        .servicetag_cpu = UPPER(NEW.servicetag_cpu);
+END
+$$
 DELIMITER ;
+DROP TRIGGER IF EXISTS `ult_usuario`;
 DELIMITER $$
-CREATE TRIGGER `ult_usuario` BEFORE INSERT ON `CPUs` FOR EACH ROW BEGIN
-    SET NEW.ult_usuario = UPPER(NEW.ult_usuario)END;
+CREATE TRIGGER `ult_usuario` BEFORE INSERT ON `cpus` FOR EACH ROW BEGIN
+    SET NEW
+        .ult_usuario = UPPER(NEW.ult_usuario);
+END
+$$
 DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para view `Dispositivos`
+-- Estrutura stand-in para view `dispositivos`
 -- (Veja abaixo para a visão atual)
 --
-CREATE TABLE `Dispositivos` (
+DROP VIEW IF EXISTS `dispositivos`;
+CREATE TABLE IF NOT EXISTS `dispositivos` (
 `id` int
-,`nome_cpu` varchar(10)
-,`sigla_coord` varchar(6)
+,`marca` varchar(10)
+,`modelo` varchar(25)
 ,`nome_coord` varchar(100)
-,`sigla_setor` varchar(6)
+,`nome_cpu` varchar(10)
 ,`nome_setor` varchar(70)
-,`ult_usuario` varchar(15)
-,`patrimonio_cpu` varchar(15)
-,`servicetag_cpu` varchar(7)
 ,`office_email` varchar(30)
 ,`office_senha` varchar(12)
 ,`office_serial` varchar(29)
-,`marca` varchar(10)
-,`modelo` varchar(25)
+,`patrimonio_cpu` varchar(15)
+,`servicetag_cpu` varchar(7)
+,`sigla_coord` varchar(6)
+,`sigla_setor` varchar(6)
+,`ult_usuario` varchar(15)
 );
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Marcas`
+-- Estrutura para tabela `marcas`
 --
 
-CREATE TABLE `Marcas` (
-  `id` int NOT NULL,
-  `marca` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+DROP TABLE IF EXISTS `marcas`;
+CREATE TABLE IF NOT EXISTS `marcas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `marca` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `marca` (`marca`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Despejando dados para a tabela `Marcas`
+-- Despejando dados para a tabela `marcas`
 --
 
-INSERT INTO `Marcas` (`id`, `marca`) VALUES
+INSERT INTO `marcas` (`id`, `marca`) VALUES
 (3, 'DELL'),
 (2, 'HP'),
 (4, 'ITAUTEC'),
@@ -158,31 +195,36 @@ INSERT INTO `Marcas` (`id`, `marca`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Modelos`
+-- Estrutura para tabela `modelos`
 --
 
-CREATE TABLE `Modelos` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `modelos`;
+CREATE TABLE IF NOT EXISTS `modelos` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `modelo` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `marca_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `marca_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `Modelo` (`modelo`),
+  KEY `marca_id` (`marca_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Despejando dados para a tabela `Modelos`
+-- Despejando dados para a tabela `modelos`
 --
 
-INSERT INTO `Modelos` (`id`, `modelo`, `marca_id`) VALUES
+INSERT INTO `modelos` (`id`, `modelo`, `marca_id`) VALUES
 (1, 'ELITEDESK 800 G4 DM', 2),
-(2, 'OPTIPLEX', 3);
+(2, 'OPTIPLEX 3070', 3);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Monitores`
+-- Estrutura para tabela `monitores`
 --
 
-CREATE TABLE `Monitores` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `monitores`;
+CREATE TABLE IF NOT EXISTS `monitores` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `coord_id` int NOT NULL,
   `setor_id` int NOT NULL,
   `cpu_id` int DEFAULT NULL,
@@ -190,33 +232,44 @@ CREATE TABLE `Monitores` (
   `servicetag_monitor` varchar(7) DEFAULT NULL,
   `serial_monitor` varchar(28) DEFAULT NULL,
   `marca` varchar(10) DEFAULT NULL,
-  `modelo` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `modelo` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `serial_UNIQUE` (`serial_monitor`),
+  UNIQUE KEY `patrimonio_UNIQUE` (`patrimonio_monitor`),
+  UNIQUE KEY `servicetag_UNIQUE` (`servicetag_monitor`),
+  KEY `Monitores_ibfk_1` (`coord_id`),
+  KEY `Monitores_ibfk_2` (`cpu_id`),
+  KEY `Monitores_ibfk_3` (`setor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Despejando dados para a tabela `Monitores`
+-- Despejando dados para a tabela `monitores`
 --
 
-INSERT INTO `Monitores` (`id`, `coord_id`, `setor_id`, `cpu_id`, `patrimonio_monitor`, `servicetag_monitor`, `serial_monitor`, `marca`, `modelo`) VALUES
+INSERT INTO `monitores` (`id`, `coord_id`, `setor_id`, `cpu_id`, `patrimonio_monitor`, `servicetag_monitor`, `serial_monitor`, `marca`, `modelo`) VALUES
 (1, 1, 43, 1, '001.05261401-4', NULL, 'GNSJ5XA003922', 'AOC', '24P1U');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Setores`
+-- Estrutura para tabela `setores`
 --
 
-CREATE TABLE `Setores` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `setores`;
+CREATE TABLE IF NOT EXISTS `setores` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `sigla_setor` varchar(6) NOT NULL COMMENT 'Sigla do Setor',
-  `nome_setor` varchar(70) NOT NULL COMMENT 'Nome da Unidade Administrativa'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nome_setor` varchar(70) NOT NULL COMMENT 'Nome da Unidade Administrativa',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nome_UNIQUE` (`nome_setor`) USING BTREE,
+  UNIQUE KEY `sigla_UNIQUE` (`sigla_setor`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Despejando dados para a tabela `Setores`
+-- Despejando dados para a tabela `setores`
 --
 
-INSERT INTO `Setores` (`id`, `sigla_setor`, `nome_setor`) VALUES
+INSERT INTO `setores` (`id`, `sigla_setor`, `nome_setor`) VALUES
 (1, 'ABAST', 'SETOR DE ABASTECIMENTO'),
 (2, 'AC', 'ASSESSORIA DE COMUNICAÇÃO'),
 (3, 'AD', 'ADMINISTRAÇÃO'),
@@ -319,139 +372,39 @@ INSERT INTO `Setores` (`id`, `sigla_setor`, `nome_setor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para view `Dispositivos`
+-- Estrutura para view `dispositivos`
 --
-DROP TABLE IF EXISTS `Dispositivos`;
+DROP TABLE IF EXISTS `dispositivos`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `Dispositivos`  AS SELECT `CPUs`.`id` AS `id`, `CPUs`.`nome_cpu` AS `nome_cpu`, `Coordenadorias`.`sigla_coord` AS `sigla_coord`, `Coordenadorias`.`nome_coord` AS `nome_coord`, `Setores`.`sigla_setor` AS `sigla_setor`, `Setores`.`nome_setor` AS `nome_setor`, `CPUs`.`ult_usuario` AS `ult_usuario`, `CPUs`.`patrimonio_cpu` AS `patrimonio_cpu`, `CPUs`.`servicetag_cpu` AS `servicetag_cpu`, `CPUs`.`office_email` AS `office_email`, `CPUs`.`office_senha` AS `office_senha`, `CPUs`.`office_serial` AS `office_serial`, `Marcas`.`marca` AS `marca`, `Modelos`.`modelo` AS `modelo` FROM ((((`CPUs` left join `Coordenadorias` on((`CPUs`.`coord_id` = `Coordenadorias`.`id`))) left join `Setores` on((`CPUs`.`setor_id` = `Setores`.`id`))) left join `Marcas` on((`CPUs`.`marca_id` = `Marcas`.`id`))) left join `Modelos` on((`CPUs`.`modelo_id` = `Modelos`.`id`))) ;
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `Coordenadorias`
---
-ALTER TABLE `Coordenadorias`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nome_UNIQUE` (`nome_coord`) USING BTREE,
-  ADD UNIQUE KEY `sigla_UNIQUE` (`sigla_coord`) USING BTREE;
-
---
--- Índices de tabela `CPUs`
---
-ALTER TABLE `CPUs`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `CPUs_UNIQUE` (`nome_cpu`),
-  ADD UNIQUE KEY `servicetag_UNIQUE` (`servicetag_cpu`),
-  ADD UNIQUE KEY `patrimonio_UNIQUE` (`patrimonio_cpu`),
-  ADD UNIQUE KEY `emailoffice_UNIQUE` (`office_email`),
-  ADD KEY `CPUs_ibfk_1` (`coord_id`),
-  ADD KEY `CPUs_ibfk_2` (`setor_id`),
-  ADD KEY `marca_id` (`marca_id`),
-  ADD KEY `modelo_id` (`modelo_id`);
-
---
--- Índices de tabela `Marcas`
---
-ALTER TABLE `Marcas`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `marca` (`marca`);
-
---
--- Índices de tabela `Modelos`
---
-ALTER TABLE `Modelos`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `Modelo` (`modelo`),
-  ADD KEY `marca_id` (`marca_id`);
-
---
--- Índices de tabela `Monitores`
---
-ALTER TABLE `Monitores`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `serial_UNIQUE` (`serial_monitor`),
-  ADD UNIQUE KEY `patrimonio_UNIQUE` (`patrimonio_monitor`),
-  ADD UNIQUE KEY `servicetag_UNIQUE` (`servicetag_monitor`),
-  ADD KEY `Monitores_ibfk_1` (`coord_id`),
-  ADD KEY `Monitores_ibfk_2` (`cpu_id`),
-  ADD KEY `Monitores_ibfk_3` (`setor_id`);
-
---
--- Índices de tabela `Setores`
---
-ALTER TABLE `Setores`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nome_UNIQUE` (`nome_setor`) USING BTREE,
-  ADD UNIQUE KEY `sigla_UNIQUE` (`sigla_setor`) USING BTREE;
-
---
--- AUTO_INCREMENT para tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `Coordenadorias`
---
-ALTER TABLE `Coordenadorias`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de tabela `CPUs`
---
-ALTER TABLE `CPUs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT de tabela `Marcas`
---
-ALTER TABLE `Marcas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `Modelos`
---
-ALTER TABLE `Modelos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `Monitores`
---
-ALTER TABLE `Monitores`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `Setores`
---
-ALTER TABLE `Setores`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+DROP VIEW IF EXISTS `dispositivos`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `dispositivos`  AS SELECT `cpus`.`id` AS `id`, `cpus`.`nome_cpu` AS `nome_cpu`, `coordenadorias`.`sigla_coord` AS `sigla_coord`, `coordenadorias`.`nome_coord` AS `nome_coord`, `setores`.`sigla_setor` AS `sigla_setor`, `setores`.`nome_setor` AS `nome_setor`, `cpus`.`ult_usuario` AS `ult_usuario`, `cpus`.`patrimonio_cpu` AS `patrimonio_cpu`, `cpus`.`servicetag_cpu` AS `servicetag_cpu`, `cpus`.`office_email` AS `office_email`, `cpus`.`office_senha` AS `office_senha`, `cpus`.`office_serial` AS `office_serial`, `marcas`.`marca` AS `marca`, `modelos`.`modelo` AS `modelo` FROM ((((`cpus` left join `coordenadorias` on((`cpus`.`coord_id` = `coordenadorias`.`id`))) left join `setores` on((`cpus`.`setor_id` = `setores`.`id`))) left join `marcas` on((`cpus`.`marca_id` = `marcas`.`id`))) left join `modelos` on((`cpus`.`modelo_id` = `modelos`.`id`))) ;
 
 --
 -- Restrições para tabelas despejadas
 --
 
 --
--- Restrições para tabelas `CPUs`
+-- Restrições para tabelas `cpus`
 --
-ALTER TABLE `CPUs`
-  ADD CONSTRAINT `CPUs_ibfk_1` FOREIGN KEY (`coord_id`) REFERENCES `Coordenadorias` (`id`),
-  ADD CONSTRAINT `CPUs_ibfk_2` FOREIGN KEY (`setor_id`) REFERENCES `Setores` (`id`),
-  ADD CONSTRAINT `CPUs_ibfk_3` FOREIGN KEY (`marca_id`) REFERENCES `Marcas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `CPUs_ibfk_4` FOREIGN KEY (`modelo_id`) REFERENCES `Modelos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `cpus`
+  ADD CONSTRAINT `CPUs_ibfk_1` FOREIGN KEY (`coord_id`) REFERENCES `coordenadorias` (`id`),
+  ADD CONSTRAINT `CPUs_ibfk_2` FOREIGN KEY (`setor_id`) REFERENCES `setores` (`id`),
+  ADD CONSTRAINT `CPUs_ibfk_3` FOREIGN KEY (`marca_id`) REFERENCES `marcas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `CPUs_ibfk_4` FOREIGN KEY (`modelo_id`) REFERENCES `modelos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Restrições para tabelas `Modelos`
+-- Restrições para tabelas `modelos`
 --
-ALTER TABLE `Modelos`
-  ADD CONSTRAINT `Modelos_ibfk_1` FOREIGN KEY (`marca_id`) REFERENCES `Marcas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `modelos`
+  ADD CONSTRAINT `Modelos_ibfk_1` FOREIGN KEY (`marca_id`) REFERENCES `marcas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Restrições para tabelas `Monitores`
+-- Restrições para tabelas `monitores`
 --
-ALTER TABLE `Monitores`
-  ADD CONSTRAINT `Monitores_ibfk_1` FOREIGN KEY (`coord_id`) REFERENCES `Coordenadorias` (`id`),
-  ADD CONSTRAINT `Monitores_ibfk_2` FOREIGN KEY (`cpu_id`) REFERENCES `CPUs` (`id`),
-  ADD CONSTRAINT `Monitores_ibfk_3` FOREIGN KEY (`setor_id`) REFERENCES `Setores` (`id`);
+ALTER TABLE `monitores`
+  ADD CONSTRAINT `Monitores_ibfk_1` FOREIGN KEY (`coord_id`) REFERENCES `coordenadorias` (`id`),
+  ADD CONSTRAINT `Monitores_ibfk_2` FOREIGN KEY (`cpu_id`) REFERENCES `cpus` (`id`),
+  ADD CONSTRAINT `Monitores_ibfk_3` FOREIGN KEY (`setor_id`) REFERENCES `setores` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
