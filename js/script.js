@@ -19,11 +19,11 @@ if (formNewComp) {
     console.log(dados);
     const resposta = await dados.json();
     console.log(resposta);
-    if (resposta['status']) {
-      document.getElementById('msgAlertErroCad').innerHTML = "";
-    } else {
-      document.getElementById('msgAlertErroCad').innerHTML = resposta['msg'];
-    }
+    // if (resposta['status']) {
+    //   document.getElementById('msgAlertErroCad').innerHTML = "";
+    // } else {
+    //   document.getElementById('msgAlertErroCad').innerHTML = resposta['msg'];
+    // }
 
   });
 }
