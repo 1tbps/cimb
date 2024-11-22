@@ -37,7 +37,7 @@
           <th>SETOR</th>
           <th>MARCA</th>
           <th>MODELO</th>
-          <th>Ações</th>
+          <th>AÇÕES</th>
         </tr>
       </thead>
     </table>
