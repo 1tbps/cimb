@@ -7,6 +7,7 @@ new DataTable('#listar-computadores', {
   serverSide: true
 });
 const formNewComp = document.getElementById("form-cad-comp");
+const fecharModalCad = new bootstrap.Modal(document.getElementById("cadastro-comp-modal"));
 if (formNewComp) {
   formNewComp.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -16,14 +17,18 @@ if (formNewComp) {
       method: "POST",
       body: dadosForm
     });
-    console.log(dados);
     const resposta = await dados.json();
-    console.log(resposta);
-    // if (resposta['status']) {
-    //   document.getElementById('msgAlertErroCad').innerHTML = "";
-    // } else {
-    //   document.getElementById('msgAlertErroCad').innerHTML = resposta['msg'];
-    // }
+
+    if (resposta['status']) {
+      document.getElementById('msgAlertErroCad').innerHTML = "";
+      document.getElementById('msgAlerta').innerHTML = resposta['msg'];
+      formNewComp.reset();
+      fecharModalCad.hide();
+      listarDataTables = $('#listar-computadores').DataTable();
+      listarDataTables.draw();
+    } else {
+      document.getElementById('msgAlertErroCad').innerHTML = resposta['msg'];
+    }
 
   });
 }

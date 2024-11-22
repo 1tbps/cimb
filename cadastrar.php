@@ -36,7 +36,7 @@ if (empty($dados['fld-nome_cpu'])) {
   $cad_computador->execute();
 
   if ($cad_computador->rowCount()) {
-    $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-success' role='alert'>CPU cadastrada com sucesso . . . !</div>"];
+    $retorna = ['status' => true, 'msg' =>  "<div class='alert alert-success' role='alert'>CPU cadastrada com sucesso . . . !</div>"];
   } else {
     $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Não foi possível cadastrar a CPU . . . !</div>"];
   }

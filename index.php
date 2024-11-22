@@ -20,6 +20,7 @@
       <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Inserir Registros</button>
     </div>
     <hr class="pb-2">
+    <span id="msgAlerta"></span>
     <table id="listar-computadores" class="table table-striped table-hover display" style="width:100%">
       <thead>
         <tr>
