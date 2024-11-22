@@ -1,7 +1,7 @@
 new DataTable('#listar-computadores', {
   ajax: 'listar_computadores.php',
   language: {
-    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json'
+    url: 'https://cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json'
   },
   processing: true,
   serverSide: true

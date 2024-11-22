@@ -9,10 +9,7 @@
   box-sizing: border-box;
   font-size: small;
 }
-
-td {
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-
+td{
+  font-family: monospace;
+  font-size: 14px;
 }

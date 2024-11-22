@@ -9,15 +9,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CIMB</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/dataTables.bootstrap5.css">
 </head>
 
 <body>
   <div class="container">
     <div class="d-flex justify-content-between align-items-center pt-3">
-      <h1 class="display-6">CIMB</h1>
-      <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Inserir Registros</button>
+      <h1 style="margin-bottom: 0px;">CIMB</h1>
+      <div class="d-flex justify-content-between align-items-center gap-3">
+        <h3 style="margin-bottom: 0px;">Cadastrar</h3>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">CPUs</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Monitores</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Marcas</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Modelos</button>
+      </div>
     </div>
     <hr class="pb-2">
     <span id="msgAlerta"></span>
@@ -158,11 +164,10 @@
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+  <script src="js/jquery-3.7.1.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dataTables.js"></script>
+  <script src="js/dataTables.bootstrap5.js"></script>
   <script src="js/script.js"></script>
 
 </body>
