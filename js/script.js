@@ -58,3 +58,33 @@ async function exiCPU(id) {
     document.getElementById("msgAlerta").innerHTML = resposta['msg'];
   }
 }
+
+async function ediCPU(id) {
+  // console.log("Editou: " + id);
+  const dados = await fetch('editar.php?id=' + id);
+  const resposta = await dados.json();
+  console.log(resposta);
+  if (resposta['status']) {
+    const formEdiCPU = new bootstrap.Modal(document.getElementById("editar-cpu-modal"));
+    formEdiCPU.show();
+    document.getElementById("msgAlerta").innerHTML = "";
+    document.getElementById("fld-ediid").value = resposta['dados'].id;
+    document.getElementById("fld-edinome_cpu").value = resposta['dados'].nome_cpu;
+    document.getElementById("fld-ediult_usuario").value = resposta['dados'].ult_usuario;
+    document.getElementById("fld-edipatrimonio_cpu").value = resposta['dados'].patrimonio_cpu;
+    document.getElementById("fld-ediservicetag_cpu").value = resposta['dados'].servicetag_cpu;
+    document.getElementById("fld-edioffice_email").value = resposta['dados'].office_email;
+    document.getElementById("fld-edioffice_senha").value = resposta['dados'].office_senha;
+    document.getElementById("fld-edioffice_serial").value = resposta['dados'].office_serial;
+    document.getElementById("fld-edisigla_coord").value = resposta['dados'].coord_id;
+    document.getElementById("fld-edinome_setor").value = resposta['dados'].setor_id;
+    document.getElementById("fld-edimarca").value = resposta['dados'].marca_id;
+    document.getElementById("fld-edimodelo").value = resposta['dados'].modelo_id;
+  } else {
+    document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+  }
+}
+
+async function excCPU(id) {
+  console.log("Excluiu: " + id);
+}

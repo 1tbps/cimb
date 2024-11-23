@@ -14,9 +14,9 @@ if (!empty($id)) {
     $row_cpu = $result_cpu->fetch(PDO::FETCH_ASSOC);
     $retorna = ['status' => true, 'dados' =>  $row_cpu];
   } else {
-    $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Não foi possível exibir a CPU . . . !</div>"];
+    $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Não foi possível editar a CPU . . . !</div>"];
   }
 } else {
-  $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Não foi possível exibir a CPU . . . !</div>"];
+  $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Não foi possível editar a CPU . . . !</div>"];
 }
 echo json_encode($retorna);
