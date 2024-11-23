@@ -6,12 +6,12 @@ new DataTable('#listar-cpus', {
   processing: true,
   serverSide: true
 });
-const formNewComp = document.getElementById("form-cad-comp");
+const formCadCPU = document.getElementById("form-cad-comp");
 const fecharModalCad = new bootstrap.Modal(document.getElementById("cadastro-cpu-modal"));
-if (formNewComp) {
-  formNewComp.addEventListener("submit", async (e) => {
+if (formCadCPU) {
+  formCadCPU.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const dadosForm = new FormData(formNewComp);
+    const dadosForm = new FormData(formCadCPU);
 
     const dados = await fetch("cadastrar.php", {
       method: "POST",
@@ -22,7 +22,7 @@ if (formNewComp) {
     if (resposta['status']) {
       document.getElementById('msgAlertErroCad').innerHTML = "";
       document.getElementById('msgAlerta').innerHTML = resposta['msg'];
-      formNewComp.reset();
+      formCadCPU.reset();
       fecharModalCad.hide();
       listarDataTables = $('#listar-cpus').DataTable();
       listarDataTables.draw();
@@ -36,5 +36,25 @@ async function exiCPU(id) {
   // console.log("Acessou: " + id);
   const dados = await fetch('exibir.php?id=' + id);
   const resposta = await dados.json();
-  console.log(resposta);
+  // console.log(resposta);
+
+  if (resposta['status']) {
+    const formExiCPU = new bootstrap.Modal(document.getElementById("exibir-cpu-modal"));
+    formExiCPU.show();
+    document.getElementById("msgAlerta").innerHTML = "";
+    document.getElementById("idCPU").innerHTML = resposta['dados'].id;
+    document.getElementById("nomeCPU").innerHTML = resposta['dados'].nome_cpu;
+    document.getElementById("ultimoCPU").innerHTML = resposta['dados'].ult_usuario;
+    document.getElementById("patrimonioCPU").innerHTML = resposta['dados'].patrimonio_cpu;
+    document.getElementById("servicetagCPU").innerHTML = resposta['dados'].servicetag_cpu;
+    document.getElementById("emailofficeCPU").innerHTML = resposta['dados'].office_email;
+    document.getElementById("senhaofficeCPU").innerHTML = resposta['dados'].office_senha;
+    document.getElementById("serialofficeCPU").innerHTML = resposta['dados'].office_serial;
+    document.getElementById("coordCPU").innerHTML = resposta['dados'].sigla_coord;
+    document.getElementById("setorCPU").innerHTML = resposta['dados'].sigla_setor;
+    document.getElementById("marcaCPU").innerHTML = resposta['dados'].marca;
+    document.getElementById("modeloCPU").innerHTML = resposta['dados'].modelo;
+  } else {
+    document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+  }
 }

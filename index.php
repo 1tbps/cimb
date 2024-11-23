@@ -43,11 +43,11 @@
     </table>
   </div>
 
-  <div class="modal fade" id="cadastro-cpu-modal" tabindex="-1" aria-labelledby="cad-cpu-modal-label" aria-hidden="true">
+  <div class="modal fade" id="cadastro-cpu-modal" tabindex="-1" aria-labelledby="cadastro-cpu-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="cad-cpu-modal-label">Inserir Registros</h1>
+          <h1 class="modal-title fs-5" id="cadastro-cpu-modal-label">Inserir Registros</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -164,6 +164,47 @@
       </div>
     </div>
   </div>
+
+  <!-- Janela Modal Exibir -->
+  <div class="modal fade" id="exibir-cpu-modal" tabindex="-1" aria-labelledby="exibir-cpu-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exibir-cpu-modal-label">Detalhes da CPU</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <dl class="row">
+            <dt class="col-sm-4 text-end">ID</dt>
+            <dd class="col-sm-8"><span id="idCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Nome PC</dt>
+            <dd class="col-sm-8"><span id="nomeCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Último usuário</dt>
+            <dd class="col-sm-8"><span id="ultimoCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Patrimônio</dt>
+            <dd class="col-sm-8"><span id="patrimonioCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Service Tag</dt>
+            <dd class="col-sm-8"><span id="servicetagCPU"></span></dd>
+            <dt class="col-sm-4 text-end">E-Mail do Office</dt>
+            <dd class="col-sm-8"><span id="emailofficeCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Senha do Office</dt>
+            <dd class="col-sm-8"><span id="senhaofficeCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Serial do Office</dt>
+            <dd class="col-sm-8"><span id="serialofficeCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Coordenadoria</dt>
+            <dd class="col-sm-8"><span id="coordCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Setor</dt>
+            <dd class="col-sm-8"><span id="setorCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Marca</dt>
+            <dd class="col-sm-8"><span id="marcaCPU"></span></dd>
+            <dt class="col-sm-4 text-end">Modelo</dt>
+            <dd class="col-sm-8"><span id="modeloCPU"></span></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/jquery-3.7.1.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dataTables.js"></script>
