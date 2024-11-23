@@ -7,8 +7,6 @@ if (empty($dados['fld-nome_cpu'])) {
   $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Necessário preencher o nome do pc. . . !</div>"];
 } elseif (empty($dados['fld-ult_usuario'])) {
   $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Necessário preencher o nome do último usuário. . . !</div>"];
-} elseif (empty($dados['fld-servicetag_cpu'])) {
-  $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Necessário preencher o número de série. . . !</div>"];
 } elseif (empty($dados['fld-sigla_coord'])) {
   $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Necessário preencher a coordenadoria . . . !</div>"];
 } elseif (empty($dados['fld-nome_setor'])) {

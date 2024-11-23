@@ -42,7 +42,7 @@
       </thead>
     </table>
   </div>
-<!-- Janela cadastrar CPU -->
+  <!-- Janela cadastrar CPU -->
   <div class="modal fade" id="cadastro-cpu-modal" tabindex="-1" aria-labelledby="cadastro-cpu-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -204,8 +204,9 @@
       </div>
     </div>
   </div>
-<!-- Janela editar CPU -->
-<div class="modal fade" id="editar-cpu-modal" tabindex="-1" aria-labelledby="editar-cpu-modal-label" aria-hidden="true">
+
+  <!-- Janela editar CPU -->
+  <div class="modal fade" id="editar-cpu-modal" tabindex="-1" aria-labelledby="editar-cpu-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -215,10 +216,10 @@
         <div class="modal-body">
           <span id="msgAlertErroEdi"></span>
           <form class="row g-3" method="POST" id="form-edi-comp">
-            <input type="hidden" name="fld-ediid" class="form-control" id="fld-ediid">
+            <input type="hidden" name="id" id="fld-ediid"><!-- O nome do campo tem que ser igual ao parametro da função  -->
             <div class="col-md-6">
-              <label for="fld-edinome_cpu" class="form-label">Nome PC</label>
-              <input type="text" name="fld-edinome_cpu" class="form-control" id="fld-edinome_cpu" placeholder="Nome Completo">
+              <label for="fld-nome_cpu" class="form-label">Nome PC</label>
+              <input type="text" name="fld-nome_cpu" class="form-control" id="fld-edinome_cpu" placeholder="Nome Completo">
             </div>
             <div class="col-md-6">
               <label for="fld-ult_usuario" class="form-label">Último Usuário</label>
@@ -320,7 +321,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn btn-outline-warning" value="cadastrar">Salvar Mudanças</button>
+              <button type="submit" class="btn btn-outline-warning" value="salvar">Salvar Mudanças</button>
             </div>
           </form>
         </div>

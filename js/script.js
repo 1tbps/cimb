@@ -6,8 +6,10 @@ new DataTable('#listar-cpus', {
   processing: true,
   serverSide: true
 });
+
 const formCadCPU = document.getElementById("form-cad-comp");
 const fecharModalCad = new bootstrap.Modal(document.getElementById("cadastro-cpu-modal"));
+
 if (formCadCPU) {
   formCadCPU.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -32,6 +34,7 @@ if (formCadCPU) {
 
   });
 }
+
 async function exiCPU(id) {
   // console.log("Acessou: " + id);
   const dados = await fetch('exibir.php?id=' + id);
@@ -59,15 +62,16 @@ async function exiCPU(id) {
   }
 }
 
+const ediCPUModal = new bootstrap.Modal(document.getElementById("editar-cpu-modal"));
 async function ediCPU(id) {
   // console.log("Editou: " + id);
-  const dados = await fetch('editar.php?id=' + id);
+  const dados = await fetch('exibir.php?id=' + id);
   const resposta = await dados.json();
-  console.log(resposta);
+  // console.log(resposta);
   if (resposta['status']) {
-    const formEdiCPU = new bootstrap.Modal(document.getElementById("editar-cpu-modal"));
-    formEdiCPU.show();
     document.getElementById("msgAlerta").innerHTML = "";
+    ediCPUModal.show();
+
     document.getElementById("fld-ediid").value = resposta['dados'].id;
     document.getElementById("fld-edinome_cpu").value = resposta['dados'].nome_cpu;
     document.getElementById("fld-ediult_usuario").value = resposta['dados'].ult_usuario;
@@ -85,6 +89,23 @@ async function ediCPU(id) {
   }
 }
 
-async function excCPU(id) {
-  console.log("Excluiu: " + id);
+const formEdiCPU = document.getElementById("form-edi-comp");
+if (formEdiCPU) {
+  formEdiCPU.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const dadosForm = new FormData(formEdiCPU);
+
+    const dados = await fetch("editar.php", {
+      method: "POST",
+      body: dadosForm
+    });
+
+    const resposta = await dados.json();
+
+    if (resposta['status']) {
+      document.getElementById("msgAlertErroEdi").innerHTML = resposta['msg'];
+    } else {
+      document.getElementById("msgAlertErroEdi").innerHTML = resposta['msg'];
+    }
+  });
 }
