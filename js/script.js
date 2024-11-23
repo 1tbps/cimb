@@ -1,5 +1,5 @@
-new DataTable('#listar-computadores', {
-  ajax: 'listar_computadores.php',
+new DataTable('#listar-cpus', {
+  ajax: 'listar_cpus.php',
   language: {
     url: 'https://cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json'
   },
@@ -7,7 +7,7 @@ new DataTable('#listar-computadores', {
   serverSide: true
 });
 const formNewComp = document.getElementById("form-cad-comp");
-const fecharModalCad = new bootstrap.Modal(document.getElementById("cadastro-comp-modal"));
+const fecharModalCad = new bootstrap.Modal(document.getElementById("cadastro-cpu-modal"));
 if (formNewComp) {
   formNewComp.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -24,11 +24,17 @@ if (formNewComp) {
       document.getElementById('msgAlerta').innerHTML = resposta['msg'];
       formNewComp.reset();
       fecharModalCad.hide();
-      listarDataTables = $('#listar-computadores').DataTable();
+      listarDataTables = $('#listar-cpus').DataTable();
       listarDataTables.draw();
     } else {
       document.getElementById('msgAlertErroCad').innerHTML = resposta['msg'];
     }
 
   });
+}
+async function exiCPU(id) {
+  // console.log("Acessou: " + id);
+  const dados = await fetch('exibir.php?id=' + id);
+  const resposta = await dados.json();
+  console.log(resposta);
 }

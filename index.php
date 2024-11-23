@@ -19,15 +19,15 @@
       <h1 style="margin-bottom: 0px;">CIMB</h1>
       <div class="d-flex justify-content-between align-items-center gap-3">
         <h3 style="margin-bottom: 0px;">Cadastrar</h3>
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">CPUs</button>
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Monitores</button>
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Marcas</button>
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-comp-modal">Modelos</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-cpu-modal">CPUs</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#">Monitores</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#">Marcas</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#">Modelos</button>
       </div>
     </div>
     <hr class="pb-2">
     <span id="msgAlerta"></span>
-    <table id="listar-computadores" class="table table-striped table-hover display" style="width:100%">
+    <table id="listar-cpus" class="table table-striped table-hover display" style="width:100%">
       <thead>
         <tr>
           <th>ID</th>
@@ -43,11 +43,11 @@
     </table>
   </div>
 
-  <div class="modal fade" id="cadastro-comp-modal" tabindex="-1" aria-labelledby="cad-comp-modal-label" aria-hidden="true">
+  <div class="modal fade" id="cadastro-cpu-modal" tabindex="-1" aria-labelledby="cad-cpu-modal-label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="cad-comp-modal-label">Inserir Registros</h1>
+          <h1 class="modal-title fs-5" id="cad-cpu-modal-label">Inserir Registros</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
