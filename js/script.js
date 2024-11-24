@@ -69,6 +69,8 @@ async function ediCPU(id) {
   const resposta = await dados.json();
   // console.log(resposta);
   if (resposta['status']) {
+    document.getElementById("msgAlertErroEdi").innerHTML = "";
+
     document.getElementById("msgAlerta").innerHTML = "";
     ediCPUModal.show();
 
@@ -103,9 +105,41 @@ if (formEdiCPU) {
     const resposta = await dados.json();
 
     if (resposta['status']) {
-      document.getElementById("msgAlertErroEdi").innerHTML = resposta['msg'];
+      // Manter a janela modal aberta
+      // document.getElementById("msgAlertErroEdi").innerHTML = resposta['msg'];
+
+      // Fechar a janela modal
+      document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+      document.getElementById("msgAlertErroEdi").innerHTML = "";
+
+      // limpar o formulário
+      formEdiCPU.reset();
+      ediCPUModal.hide();
+
+      // Atualizar a lista de registros
+      listarDataTables = $('#listar-cpus').DataTable();
+      listarDataTables.draw();
+
     } else {
       document.getElementById("msgAlertErroEdi").innerHTML = resposta['msg'];
     }
   });
+}
+async function excCPU(id) {
+  // console.log("Deletará: " + id);
+  var confirmar = confirm("Tem certeza que deseja excluir o registro selecionado?");
+  if (confirmar) {
+    const dados = await fetch("excluir.php?id=" + id);
+    const resposta = await dados.json();
+    // console.log(resposta);
+    if (resposta['status']) {
+      document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+      // Atualizar a lista de registros
+      listarDataTables = $('#listar-cpus').DataTable();
+      listarDataTables.draw();
+    } else {
+      document.getElementById("msgAlerta").innerHTML = resposta['msg'];
+
+    }
+  }
 }

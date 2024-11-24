@@ -206,7 +206,7 @@
   </div>
 
   <!-- Janela editar CPU -->
-  <div class="modal fade" id="editar-cpu-modal" tabindex="-1" aria-labelledby="editar-cpu-modal-label" aria-hidden="true">
+  <div class="modal fade" id="editar-cpu-modal" tabindex="-1" aria-labelledby="editar-cpu-modal-label">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
