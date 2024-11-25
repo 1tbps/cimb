@@ -20,9 +20,9 @@
       <div class="d-flex justify-content-between align-items-center gap-3">
         <h3 style="margin-bottom: 0px;">Cadastrar</h3>
         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#cadastro-cpu-modal">CPUs</button>
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#">Monitores</button>
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#">Marcas</button>
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#">Modelos</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" disabled data-bs-toggle="modal" data-bs-target="#">Monitores</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" disabled data-bs-toggle="modal" data-bs-target="#">Marcas</button>
+        <button type="button" class="btn btn-sm btn-outline-primary" disabled data-bs-toggle="modal" data-bs-target="#">Modelos</button>
       </div>
     </div>
     <hr class="pb-2">
