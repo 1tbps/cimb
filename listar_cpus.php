@@ -5,7 +5,7 @@ $dados_requisicao = $_REQUEST;
 
 //Lista de colunas na tabela
 $colunas = [
-  0 => 'ID',
+  0 => 'id',
   1 => 'nome_cpu',
   2 => 'ult_usuario',
   3 => 'sigla_coord',
@@ -15,7 +15,7 @@ $colunas = [
 ];
 
 //Obter a quantidade de registros no banco de dados
-$query_qnt_cpus = "SELECT COUNT(id) AS qnt_cpus FROM Dispositivos";
+$query_qnt_cpus = "SELECT COUNT(id) FROM `cimb_dispositivos`;";
 
 if (!empty($dados_requisicao['search']['value'])) {
   $query_qnt_cpus .= " WHERE id LIKE :id ";
@@ -47,8 +47,8 @@ $row_qnt_cpus = $result_qnt_cpus->fetch(PDO::FETCH_ASSOC);
 //var_dump($row_qnt_cpus);
 
 //Recuperar os registros do banco de dados
-// $query_cpus = "SELECT * FROM Dispositivos ORDER BY id DESC LIMIT :inicio, :quantidade";
-$query_cpus = "SELECT * FROM Dispositivos ";
+// $query_cpus = "SELECT * FROM cimb.dispositivos ORDER BY id DESC LIMIT :inicio, :quantidade";
+$query_cpus = "SELECT * FROM `cimb_dispositivos` ";
 
 if (!empty($dados_requisicao['search']['value'])) {
   $query_cpus .= " WHERE ID LIKE :id ";

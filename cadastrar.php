@@ -16,7 +16,7 @@ if (empty($dados['fld-nome_cpu'])) {
 } elseif (empty($dados['fld-modelo'])) {
   $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Necessário preencher o campo modelo . . . !</div>"];
 } else {
-  $query_cpu = " INSERT INTO CPUs (nome_cpu, ult_usuario, patrimonio_cpu, servicetag_cpu, office_email, office_senha, office_serial, coord_id, setor_id, marca_id, modelo_id) VALUES (:nome_cpu,:ult_usuario,:patrimonio_cpu,:servicetag_cpu,:office_email,:office_senha,:office_serial,:coord_id,:setor_id,:marca,:modelo)";
+  $query_cpu = " INSERT INTO cimb_cpus (nome_cpu, ult_usuario, patrimonio_cpu, servicetag_cpu, office_email, office_senha, office_serial, coord_id, setor_id, marca_id, modelo_id) VALUES (:nome_cpu,:ult_usuario,:patrimonio_cpu,:servicetag_cpu,:office_email,:office_senha,:office_serial,:coord_id,:setor_id,:marca,:modelo)";
 
   $cad_cpu = $conn->prepare($query_cpu);
   $cad_cpu->bindParam(':nome_cpu', $dados['fld-nome_cpu']);

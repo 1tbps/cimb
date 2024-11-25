@@ -88,7 +88,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_coord = 'SELECT id, sigla_coord FROM Coordenadorias';
+                $query_coord = 'SELECT id, sigla_coord FROM cimb_coordenadorias';
                 $result_coord = $conn->prepare($query_coord);
                 $result_coord->execute();
 
@@ -107,7 +107,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_setor = 'SELECT id, nome_setor FROM Setores';
+                $query_setor = 'SELECT id, nome_setor FROM cimb_setores';
                 $result_setor = $conn->prepare($query_setor);
                 $result_setor->execute();
 
@@ -126,7 +126,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_marca = 'SELECT id, marca FROM Marcas';
+                $query_marca = 'SELECT id, marca FROM cimb_marcas';
                 $result_marca = $conn->prepare($query_marca);
                 $result_marca->execute();
 
@@ -144,7 +144,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_modelo = 'SELECT id, modelo FROM Modelos';
+                $query_modelo = 'SELECT id, modelo FROM cimb_modelos';
                 $result_modelo = $conn->prepare($query_modelo);
                 $result_modelo->execute();
 
@@ -252,7 +252,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_coord = 'SELECT id, sigla_coord FROM Coordenadorias';
+                $query_coord = 'SELECT id, sigla_coord FROM cimb_coordenadorias';
                 $result_coord = $conn->prepare($query_coord);
                 $result_coord->execute();
 
@@ -271,7 +271,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_setor = 'SELECT id, nome_setor FROM Setores';
+                $query_setor = 'SELECT id, nome_setor FROM cimb_setores';
                 $result_setor = $conn->prepare($query_setor);
                 $result_setor->execute();
 
@@ -290,7 +290,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_marca = 'SELECT id, marca FROM Marcas';
+                $query_marca = 'SELECT id, marca FROM cimb_marcas';
                 $result_marca = $conn->prepare($query_marca);
                 $result_marca->execute();
 
@@ -308,7 +308,7 @@
                 <?php
                 include_once "conexao.php";
 
-                $query_modelo = 'SELECT id, modelo FROM Modelos';
+                $query_modelo = 'SELECT id, modelo FROM cimb_modelos';
                 $result_modelo = $conn->prepare($query_modelo);
                 $result_modelo->execute();
 

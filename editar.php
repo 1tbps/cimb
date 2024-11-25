@@ -19,7 +19,7 @@ if (empty($dados['id'])) {
 } elseif (empty($dados['fld-modelo'])) {
   $retorna = ['status' => false, 'msg' =>  "<div class='alert alert-danger' role='alert'>Escolha na lista o modelo pc . . . !</div>"];
 } else {
-  $query_cpu = "UPDATE CPUs SET nome_cpu=:nome_cpu, ult_usuario=:ult_usuario, patrimonio_cpu=:patrimonio_cpu, servicetag_cpu=:servicetag_cpu, office_email=:office_email, office_senha=:office_senha, office_serial=:office_serial, coord_id=:coord_id, setor_id=:setor_id, marca_id=:marca_id, modelo_id=:modelo_id WHERE id=:id";
+  $query_cpu = "UPDATE cimb_cpus SET nome_cpu=:nome_cpu, ult_usuario=:ult_usuario, patrimonio_cpu=:patrimonio_cpu, servicetag_cpu=:servicetag_cpu, office_email=:office_email, office_senha=:office_senha, office_serial=:office_serial, coord_id=:coord_id, setor_id=:setor_id, marca_id=:marca_id, modelo_id=:modelo_id WHERE id=:id";
   $edi_cpu = $conn->prepare($query_cpu);
   $edi_cpu->bindParam(':nome_cpu', $dados['fld-nome_cpu']);
   $edi_cpu->bindParam(':ult_usuario', $dados['fld-ult_usuario']);
