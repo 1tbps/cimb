@@ -8,15 +8,15 @@
     <link rel="shortcut icon" href="img/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIMB</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-        <div class="container-fluid">
+        <div class="container">
             <a class="navbar-brand" href="#">CIMB - BENS PATRIMONIAIS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -27,7 +27,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
                 <div class="btn-group">
-                    <button class="btn btn-success btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Opções de Cadastro
                     </button>
@@ -43,9 +43,8 @@
         </div>
     </nav>
     <div class="container">
-        <hr class="pb-2">
         <span id="msgAlerta"></span>
-        <table id="listar-cpus" class="table table-striped table-hover display nowrap">
+        <table id="listar-cpus" class="table table-hover border border-light-subtle display nowrap">
             <thead>
                 <tr>
                     <th>ID</th>
