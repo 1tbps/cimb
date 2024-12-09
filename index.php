@@ -15,21 +15,34 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center pt-3">
-            <h1 style="margin-bottom: 0px;">CIMB</h1>
-            <div class="d-flex justify-content-between align-items-center gap-3">
-                <h3 style="margin-bottom: 0px;">Cadastrar</h3>
-                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                    data-bs-target="#cadastro-cpu-modal">CPUs</button>
-                <button type="button" class="btn btn-sm btn-outline-primary" disabled data-bs-toggle="modal"
-                    data-bs-target="#">Monitores</button>
-                <button type="button" class="btn btn-sm btn-outline-primary" disabled data-bs-toggle="modal"
-                    data-bs-target="#">Marcas</button>
-                <button type="button" class="btn btn-sm btn-outline-primary" disabled data-bs-toggle="modal"
-                    data-bs-target="#">Modelos</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CIMB - BENS PATRIMONIAIS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                <div class="btn-group">
+                    <button class="btn btn-success btn-md dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Opções de Cadastro
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-lg-end">
+                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">CPU</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">MONITORES</a>
+                        </li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">MARCAS</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">MODELOS</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </nav>
+    <div class="container">
         <hr class="pb-2">
         <span id="msgAlerta"></span>
         <table id="listar-cpus" class="table table-striped table-hover display nowrap">
