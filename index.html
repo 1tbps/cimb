@@ -110,6 +110,23 @@
                             <label for="fld-sigla_coord" class="form-label">Coord.</label>
                             <select name="fld-sigla_coord" id="fld-sigla_coord" class="form-select">
                                 <option value="">Selecione a Coord.</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar coordenadorias
+                                        fetch('getCoord.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-sigla_coord');
+
+                                                data.forEach(coord => {
+                                                    const option = document.createElement('option');
+                                                    option.value = coord.id;
+                                                    option.textContent = coord.sigla_coord;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar coordenadorias:', error))
+                                    });</script>
                             </select>
                         </div>
 
@@ -117,6 +134,22 @@
                             <label for="fld-nome_setor" class="form-label">Setor</label>
                             <select name="fld-nome_setor" id="fld-nome_setor" class="form-select">
                                 <option value="">Selecione o Setor</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar setores
+                                        fetch('getSetor.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-nome_setor');
+                                                data.forEach(setor => {
+                                                    const option = document.createElement('option');
+                                                    option.value = setor.id;
+                                                    option.textContent = setor.nome_setor;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar setores:', error));
+                                    });</script>
                             </select>
                         </div>
 
@@ -124,6 +157,22 @@
                             <label for="fld-marca" class="form-label">Marca</label>
                             <select name="fld-marca" id="fld-marca" class="form-select">
                                 <option value="">Selecione a Marca</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar marcas
+                                        fetch('getMarca.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-marca');
+                                                data.forEach(marca => {
+                                                    const option = document.createElement('option');
+                                                    option.value = marca.id;
+                                                    option.textContent = marca.marca;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar marcas:', error));
+                                    });</script>
                             </select>
                         </div>
 
@@ -131,6 +180,22 @@
                             <label for="fld-modelo" class="form-label">Modelo</label>
                             <select name="fld-modelo" id="fld-modelo" class="form-select">
                                 <option value="">Selecione o Modelo</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar modelos
+                                        fetch('getModelo.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-modelo');
+                                                data.forEach(modelo => {
+                                                    const option = document.createElement('option');
+                                                    option.value = modelo.id;
+                                                    option.textContent = modelo.modelo;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar modelos:', error));
+                                    });</script>
                             </select>
                         </div>
 
@@ -239,24 +304,88 @@
                             <label for="fld-sigla_coord" class="form-label">Coord.</label>
                             <select name="fld-sigla_coord" id="fld-edisigla_coord" class="form-select">
                                 <option value="">Selecione a Coord.</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar coordenadorias
+                                        fetch('getCoord.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-sigla_coord');
+                                                data.forEach(coord => {
+                                                    const option = document.createElement('option');
+                                                    option.value = coord.id;
+                                                    option.textContent = coord.sigla_coord;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar coordenadorias:', error))
+                                    });</script>
                             </select>
                         </div>
                         <div class="col-md-12">
                             <label for="fld-nome_setor" class="form-label">Setor</label>
                             <select name="fld-nome_setor" id="fld-edinome_setor" class="form-select">
                                 <option value="">Selecione o Setor</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar setores
+                                        fetch('getSetor.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-nome_setor');
+                                                data.forEach(setor => {
+                                                    const option = document.createElement('option');
+                                                    option.value = setor.id;
+                                                    option.textContent = setor.nome_setor;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar setores:', error));
+                                    });</script>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="fld-marca" class="form-label">Marca</label>
                             <select name="fld-marca" id="fld-edimarca" class="form-select">
                                 <option value="">Selecione a Marca</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar marcas
+                                        fetch('getMarca.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-marca');
+                                                data.forEach(marca => {
+                                                    const option = document.createElement('option');
+                                                    option.value = marca.id;
+                                                    option.textContent = marca.marca;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar marcas:', error));
+                                    });</script>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="fld-modelo" class="form-label">Modelo</label>
                             <select name="fld-modelo" id="fld-edimodelo" class="form-select">
                                 <option value="">Selecione o Modelo</option>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        // Carregar modelos
+                                        fetch('getModelo.php')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const select = document.getElementById('fld-modelo');
+                                                data.forEach(modelo => {
+                                                    const option = document.createElement('option');
+                                                    option.value = modelo.id;
+                                                    option.textContent = modelo.modelo;
+                                                    select.appendChild(option);
+                                                });
+                                            })
+                                            .catch(error => console.error('Erro ao buscar modelos:', error));
+                                    });</script>
                             </select>
                         </div>
                         <div class="modal-footer">
@@ -277,7 +406,6 @@
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.dataTables.js"></script>
     <script src="js/script_cpu.js"></script>
-    <script src="js/script.js"></script>
 
 </body>
 

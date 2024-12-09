@@ -5,7 +5,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 // $id=100;
 // $id="";
 if (!empty($id)) {
-  $query_cpu = "SELECT * FROM `cimb_dispositivos` WHERE id=:id limit 1";
+  $query_cpu = "SELECT id, nome_cpu, ult_usuario, patrimonio_cpu, servicetag_cpu, office_email, office_senha, office_serial, coord_id, sigla_coord, nome_coord, setor_id, sigla_setor, nome_setor, marca_id, marca, modelo_id, modelo FROM `cimb_dispositivos` WHERE id=:id limit 1";
   $result_cpu = $conn->prepare($query_cpu);
   $result_cpu->bindParam(':id', $id);
   $result_cpu->execute();

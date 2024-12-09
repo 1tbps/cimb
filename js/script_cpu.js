@@ -79,7 +79,7 @@ async function ediCPU(id) {
     // console.log("Editou: " + id);
     const dados = await fetch('exibir.php?id=' + id);
     const resposta = await dados.json();
-    // console.log(resposta);
+    // console.log(resposta['dados']);
     if (resposta['status']) {
         document.getElementById("msgAlertErroEdi").innerHTML = "";
 
@@ -102,6 +102,7 @@ async function ediCPU(id) {
         document.getElementById("msgAlerta").innerHTML = resposta['msg'];
     }
 }
+
 
 const formEdiCPU = document.getElementById("form-edi-comp");
 if (formEdiCPU) {
