@@ -6,6 +6,8 @@
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIMB</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
@@ -59,6 +61,142 @@
             </thead>
         </table>
     </div>
+    <script>
+        // Fetch and populate Coordenadorias
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getCoord.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-edisigla_coord');
+                    select.innerHTML = '<option value="">Selecione a Coord.</option>'; // Clear initial option
+                    data.forEach(coord => {
+                        const option = document.createElement('option');
+                        option.value = coord.id;
+                        option.textContent = coord.sigla_coord;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar coordenadorias:', error));
+        });
+
+        // Fetch and populate Setores
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getSetor.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-edinome_setor');
+                    select.innerHTML = '<option value="">Selecione o Setor.</option>';
+                    data.forEach(setor => {
+                        const option = document.createElement('option');
+                        option.value = setor.id;
+                        option.textContent = setor.nome_setor;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar setores:', error));
+        });
+
+        // Fetch and populate Marcas
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getMarca.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-edimarca');
+                    select.innerHTML = '<option value="">Selecione a Marca.</option>';
+                    data.forEach(marca => {
+                        const option = document.createElement('option');
+                        option.value = marca.id;
+                        option.textContent = marca.marca;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar marcas:', error));
+        });
+
+        // Fetch and populate Modelos
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getModelo.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-edimodelo');
+                    select.innerHTML = '<option value="">Selecione o Modelo.</option>';
+                    data.forEach(modelo => {
+                        const option = document.createElement('option');
+                        option.value = modelo.id;
+                        option.textContent = modelo.modelo;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar modelos:', error));
+        });
+        // Fetch and populate Coordenadorias
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getCoord.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-sigla_coord');
+                    select.innerHTML = '<option value="">Selecione a Coord.</option>'; // Clear initial option
+                    data.forEach(coord => {
+                        const option = document.createElement('option');
+                        option.value = coord.id;
+                        option.textContent = coord.sigla_coord;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar coordenadorias:', error));
+        });
+
+        // Fetch and populate Setores
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getSetor.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-nome_setor');
+                    select.innerHTML = '<option value="">Selecione o Setor.</option>';
+                    data.forEach(setor => {
+                        const option = document.createElement('option');
+                        option.value = setor.id;
+                        option.textContent = setor.nome_setor;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar setores:', error));
+        });
+
+        // Fetch and populate Marcas
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getMarca.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-marca');
+                    select.innerHTML = '<option value="">Selecione a Marca.</option>';
+                    data.forEach(marca => {
+                        const option = document.createElement('option');
+                        option.value = marca.id;
+                        option.textContent = marca.marca;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar marcas:', error));
+        });
+
+        // Fetch and populate Modelos
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('getModelo.php')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('fld-modelo');
+                    select.innerHTML = '<option value="">Selecione o Modelo.</option>';
+                    data.forEach(modelo => {
+                        const option = document.createElement('option');
+                        option.value = modelo.id;
+                        option.textContent = modelo.modelo;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erro ao buscar modelos:', error));
+        });
+    </script>
     <!-- Janela cadastrar CPU -->
     <div class="modal fade" id="cadastro-cpu-modal" tabindex="-1" aria-labelledby="cadastro-cpu-modal-label"
         aria-hidden="true">
@@ -110,7 +248,7 @@
                             <label for="fld-sigla_coord" class="form-label">Coord.</label>
                             <select name="fld-sigla_coord" id="fld-sigla_coord" class="form-select">
                                 <option value="">Selecione a Coord.</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar coordenadorias
                                         fetch('getCoord.php')
@@ -126,7 +264,7 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar coordenadorias:', error))
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
 
@@ -134,7 +272,7 @@
                             <label for="fld-nome_setor" class="form-label">Setor</label>
                             <select name="fld-nome_setor" id="fld-nome_setor" class="form-select">
                                 <option value="">Selecione o Setor</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar setores
                                         fetch('getSetor.php')
@@ -149,7 +287,7 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar setores:', error));
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
 
@@ -157,7 +295,7 @@
                             <label for="fld-marca" class="form-label">Marca</label>
                             <select name="fld-marca" id="fld-marca" class="form-select">
                                 <option value="">Selecione a Marca</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar marcas
                                         fetch('getMarca.php')
@@ -172,7 +310,7 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar marcas:', error));
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
 
@@ -180,7 +318,7 @@
                             <label for="fld-modelo" class="form-label">Modelo</label>
                             <select name="fld-modelo" id="fld-modelo" class="form-select">
                                 <option value="">Selecione o Modelo</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar modelos
                                         fetch('getModelo.php')
@@ -195,7 +333,7 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar modelos:', error));
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
 
@@ -304,7 +442,7 @@
                             <label for="fld-sigla_coord" class="form-label">Coord.</label>
                             <select name="fld-sigla_coord" id="fld-edisigla_coord" class="form-select">
                                 <option value="">Selecione a Coord.</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar coordenadorias
                                         fetch('getCoord.php')
@@ -319,14 +457,14 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar coordenadorias:', error))
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
                         <div class="col-md-12">
                             <label for="fld-nome_setor" class="form-label">Setor</label>
                             <select name="fld-nome_setor" id="fld-edinome_setor" class="form-select">
                                 <option value="">Selecione o Setor</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar setores
                                         fetch('getSetor.php')
@@ -341,14 +479,14 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar setores:', error));
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="fld-marca" class="form-label">Marca</label>
                             <select name="fld-marca" id="fld-edimarca" class="form-select">
                                 <option value="">Selecione a Marca</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar marcas
                                         fetch('getMarca.php')
@@ -363,14 +501,14 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar marcas:', error));
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="fld-modelo" class="form-label">Modelo</label>
                             <select name="fld-modelo" id="fld-edimodelo" class="form-select">
                                 <option value="">Selecione o Modelo</option>
-                                <script>
+                                <!-- <script>
                                     document.addEventListener('DOMContentLoaded', function () {
                                         // Carregar modelos
                                         fetch('getModelo.php')
@@ -385,7 +523,7 @@
                                                 });
                                             })
                                             .catch(error => console.error('Erro ao buscar modelos:', error));
-                                    });</script>
+                                    });</script> -->
                             </select>
                         </div>
                         <div class="modal-footer">
