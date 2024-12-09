@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIMB</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.dataTables.css">
 </head>
 
 <body>
@@ -31,7 +32,7 @@
         </div>
         <hr class="pb-2">
         <span id="msgAlerta"></span>
-        <table id="listar-cpus" class="table table-striped table-hover display" style="width:100%">
+        <table id="listar-cpus" class="table table-striped table-hover display nowrap">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -307,11 +308,12 @@
             </div>
         </div>
     </div>
-
-    <script src="js/jquery-3.7.1.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/dataTables.js"></script>
-    <script src="js/dataTables.bootstrap5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.dataTables.js"></script>
     <script src="js/script_cpu.js"></script>
     <script src="js/script.js"></script>
 
