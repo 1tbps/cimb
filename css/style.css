@@ -19,9 +19,10 @@
     font-size: small;
 }
 
+html,
 body {
     background-color: #f7f7f7;
-    /* Branco com 80% de opacidade */
+    /* background: url(/img/planta.jpg); */
 }
 
 .navbar-brand {

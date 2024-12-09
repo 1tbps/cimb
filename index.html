@@ -27,7 +27,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
                 <div class="btn-group">
-                    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Opções de Cadastro
                     </button>
@@ -239,74 +239,24 @@
                             <label for="fld-sigla_coord" class="form-label">Coord.</label>
                             <select name="fld-sigla_coord" id="fld-edisigla_coord" class="form-select">
                                 <option value="">Selecione a Coord.</option>
-                                <?php
-                                include_once "conexao.php";
-
-                                $query_coord = 'SELECT id, sigla_coord FROM cimb_coordenadorias';
-                                $result_coord = $conn->prepare($query_coord);
-                                $result_coord->execute();
-
-                                while ($row_coord = $result_coord->fetch(PDO::FETCH_ASSOC)) {
-                                    extract($row_coord);
-                                    echo '<option value="' . $id . '">' . $sigla_coord . '</option>';
-                                }
-
-                                ?>
                             </select>
                         </div>
                         <div class="col-md-12">
                             <label for="fld-nome_setor" class="form-label">Setor</label>
                             <select name="fld-nome_setor" id="fld-edinome_setor" class="form-select">
                                 <option value="">Selecione o Setor</option>
-                                <?php
-                                include_once "conexao.php";
-
-                                $query_setor = 'SELECT id, nome_setor FROM cimb_setores';
-                                $result_setor = $conn->prepare($query_setor);
-                                $result_setor->execute();
-
-                                while ($row_setor = $result_setor->fetch(PDO::FETCH_ASSOC)) {
-                                    extract($row_setor);
-                                    echo '<option value="' . $id . '">' . $nome_setor . '</option>';
-                                }
-
-                                ?>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="fld-marca" class="form-label">Marca</label>
                             <select name="fld-marca" id="fld-edimarca" class="form-select">
                                 <option value="">Selecione a Marca</option>
-                                <?php
-                                include_once "conexao.php";
-
-                                $query_marca = 'SELECT id, marca FROM cimb_marcas';
-                                $result_marca = $conn->prepare($query_marca);
-                                $result_marca->execute();
-
-                                while ($row_marca = $result_marca->fetch(PDO::FETCH_ASSOC)) {
-                                    extract($row_marca);
-                                    echo '<option value="' . $id . '">' . $marca . '</option>';
-                                }
-                                ?>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label for="fld-modelo" class="form-label">Modelo</label>
                             <select name="fld-modelo" id="fld-edimodelo" class="form-select">
                                 <option value="">Selecione o Modelo</option>
-                                <?php
-                                include_once "conexao.php";
-
-                                $query_modelo = 'SELECT id, modelo FROM cimb_modelos';
-                                $result_modelo = $conn->prepare($query_modelo);
-                                $result_modelo->execute();
-
-                                while ($row_modelo = $result_modelo->fetch(PDO::FETCH_ASSOC)) {
-                                    extract($row_modelo);
-                                    echo '<option value="' . $id . '">' . $modelo . '</option>';
-                                }
-                                ?>
                             </select>
                         </div>
                         <div class="modal-footer">
