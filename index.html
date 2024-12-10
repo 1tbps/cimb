@@ -17,36 +17,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-
-                <img src="img/eu.png" alt="">
-                <a class="navbar-brand" href="#">CIMB - BENS PATRIMONIAIS</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                </ul>
-                <div class="btn-group">
-                    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Opções de Cadastro
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-lg-end">
-                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">CPU</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">MONITORES</a>
-                        </li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">MARCAS</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#cadastro-cpu-modal">MODELOS</a></li>
-                    </ul>
-                </div>
-            </div>
+    <header>
+        <div class="topo">
+            <img src="img/eu.png" alt="">
+            <h2 class='logo'>CIMB - BENS PATRIMONIAIS</h2>
         </div>
-    </nav>
+        <nav class="navigation">
+            <a href="#">CPU</a>
+            <a href="#">Sobre</a>
+            <a href="#">Serviços</a>
+            <a href="#">Contato</a>
+            <button class="btn btn-primary btnLogin-popup" data-bs-toggle="modal" data-bs-target="#cadastro-cpu-modal">Login</button>
+        </nav>
+    </header>
+
     <div class="container">
         <span id="msgAlerta"></span>
         <table id="listar-cpus" class="table table-hover border border-light-subtle display nowrap">

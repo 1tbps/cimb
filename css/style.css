@@ -1,42 +1,105 @@
-@font-face {
-    /* font-family: 'Poppins';
-  src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype'),
-  url('../fonts/Roboto_Mono/RobotoMono-Regular.ttf') format('truetype'); */
-
-    font-family: 'Ubuntu';
-    src: url('../fonts/Ubuntu/Ubuntu-Regular.ttf') format('truetype'),
-        url('../fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf') format('truetype');
-
+:root {
+    --cor-1: rgba(0, 0, 0, .5);
+    --cor-2: rgba(0, 0, 0);
+    --cor-3: rgb(255, 255, 255, .5);
+    --cor-4: rgb(255, 255, 255);
+    --cor-5: rgb(2, 0, 83);
+    --cor-6: rgb(22, 41, 56);
 }
 
 * {
-    font-family: 'Ubuntu';
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-html,
 body {
-    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.container {
-    margin-bottom: 0.5em;
-    margin-top: 0.9em;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--cor-6);
+    backdrop-filter: blur(20px);
+    background-color: var(--cor-5);
+    z-index: 99;
 }
 
-.navbar-brand{
-    margin: 0;
-    padding: 0;
-    font-size: 25px;
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 img {
-    width: 30px;
-    height: 30px;
-    margin-right: .8em;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.logo {
+    font-size: 2.5em;
+    color: var(--cor-4);
+    user-select: none;
+    margin: 0;
+
+}
+
+.navigation a {
+    position: relative;
+    color: var(--cor-4);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--cor-4);
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 40px;
+    border: 2px solid var(--cor-4);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: var(--cor-4);
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: var(--cor-5);
+    color: var(--cor-4);
 }
 
 .row.dt-layout-row {
