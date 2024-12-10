@@ -16,22 +16,27 @@
     font-family: 'Ubuntu';
     margin: 0;
     padding: 0;
-    font-size: small;
 }
 
 html,
 body {
     background-color: #f7f7f7;
-    /* background: url(/img/planta.jpg); */
-}
-
-.navbar-brand {
-    font-size: x-large;
 }
 
 .container {
     margin-bottom: 0.5em;
     margin-top: 0.9em;
+}
+
+.navbar-brand{
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+}
+img {
+    width: 30px;
+    height: 30px;
+    margin-right: .8em;
 }
 
 .row.dt-layout-row {
